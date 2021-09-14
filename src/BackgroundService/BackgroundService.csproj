@@ -1,5 +1,10 @@
 ﻿<Project Sdk="Stelzi79.NetSdk/0.5.4">
 	<PropertyGroup>
 		<PackageVersion>$(Version)</PackageVersion>
+		<DebugType>embedded</DebugType>
+		<OutputType>Exe</OutputType>
 	</PropertyGroup>
+	<ItemGroup>
+	  <ProjectReference Include="..\DailyCmdrLib\DailyCmdrLib.csproj" />
+	</ItemGroup>
 </Project>
