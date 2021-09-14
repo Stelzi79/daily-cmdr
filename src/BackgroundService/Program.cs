@@ -19,10 +19,10 @@ namespace BackgroundService
 			Console.WriteLine("Starting up ActorSystem ...");
 			MainSystem = ActorSystem.Create("daily-cmd");
 			IActorRef mainActor = MainSystemActor.Props(MainSystem);
-			mainActor.Tell(new SystemPreStartup(DateTime.Now));
-			mainActor.Tell(new SystemStartup(DateTime.Now));
-			mainActor.Tell(new SystemPreEnd(DateTime.Now));
-			mainActor.Tell(new SystemEnd(DateTime.Now));
+			mainActor.Tell(new SystemPreStartup());
+			mainActor.Tell(new SystemStartup());
+			mainActor.Tell(new SystemPreEnd());
+			mainActor.Tell(new SystemEnd());
 
 			Console.ReadLine();
 		}

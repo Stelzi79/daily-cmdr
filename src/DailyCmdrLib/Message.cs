@@ -6,4 +6,12 @@ using System.Threading.Tasks;
 
 namespace DailyCmdrLib;
 
-public abstract record Message(DateTime DateTime);
+public abstract record Message
+{
+	public DateTime DateTime { get; init; }
+
+	public Message(DateTime? dateTime = null)
+	{
+		DateTime = dateTime ?? DateTime.Now;
+	}
+}
