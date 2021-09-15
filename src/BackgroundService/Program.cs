@@ -23,8 +23,7 @@ namespace BackgroundService
 			mainActor.Tell(new SystemStartup());
 			mainActor.Tell(new SystemPreEnd());
 			mainActor.Tell(new SystemEnd());
-
-			Console.ReadLine();
+			_ = Console.ReadLine();
 		}
 	}
 }
