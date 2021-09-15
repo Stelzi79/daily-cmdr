@@ -27,29 +27,10 @@ public class MyActorBase<T> : UntypedActor
 			}
 			else
 			{
-				throw new NotImplementedException($"No 'OnReceive({messageType} message)' implemented in Actor '{GetType().ToString()}'!");
+				throw new NotImplementedException($"No 'OnReceive({messageType} message)' implemented in Actor '{GetType()}'!");
 			}
 		}));
-
 		handler.Value.Invoke((Message)message);
-
-		//if (_MessageHandlers.ContainsKey(messageType) && _MessageHandlers[messageType] != null)
-		//{
-		//	_MessageHandlers[messageType].Invoke((Message)message);
-		//}
-		//else
-		//{
-		//	MethodInfo? methode = typeof(T).GetMethod("OnReceive", new Type[] { messageType });
-		//	if (methode != null)
-		//	{
-		//		_ = methode.Invoke(this, new object[] { message });
-		//		_MessageHandlers[messageType] = new Action<Message>((message) => methode.Invoke(this, new object[] { message }));
-		//	}
-		//	else
-		//	{
-		//		throw new NotImplementedException($"No 'OnReceive({messageType} message)' implemented!");
-		//	}
-		//}
 	}
 
 	public static IActorRef Props(ActorSystem system, string actorName = "")
