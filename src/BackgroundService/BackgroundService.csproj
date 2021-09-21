@@ -7,4 +7,12 @@
 	<ItemGroup>
 	  <ProjectReference Include="..\DailyCmdrLib\DailyCmdrLib.csproj" />
 	</ItemGroup>
+	<ItemGroup>
+	  <None Update="akka.DEBUG.hocon">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="akka.hocon">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	</ItemGroup>
 </Project>

@@ -1,0 +1,8 @@
+﻿#
+# see https://getakka.net/articles/configuration/akka.html for possible configuration!
+#
+
+akka{
+	actor{
+	}
+}
