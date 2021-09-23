@@ -9,6 +9,8 @@ using Akka;
 using Akka.Actor;
 using Akka.Configuration;
 
+using Ardalis.GuardClauses;
+
 using BackgroundService.Messages;
 
 namespace BackgroundService
@@ -70,6 +72,7 @@ namespace BackgroundService
 
 		private static Config GetConfiguration(string baseDirectory)
 		{
+			baseDirectory = Guard.Against.NullOrWhiteSpace(baseDirectory, nameof(baseDirectory));
 			var config = Config.Empty;
 
 			// process any DEBUG, RELEASE, etc. hocon before all the others
