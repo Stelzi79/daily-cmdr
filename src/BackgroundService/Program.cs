@@ -66,7 +66,7 @@ namespace BackgroundService
 		{
 			e.Cancel = true;
 			_MainActor.Tell(new SystemEnd());
-			MainSystem.Terminate();
+			_ = MainSystem.Terminate();
 			_Shutdown = true;
 		}
 

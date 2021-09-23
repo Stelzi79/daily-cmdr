@@ -27,7 +27,9 @@ public class MyActorBase<T> : UntypedActor
 			}
 			else
 			{
+#pragma warning disable RCS1079 // Throwing of new NotImplementedException.
 				throw new NotImplementedException($"No 'OnReceive({messageType} message)' implemented in Actor '{GetType()}'!");
+#pragma warning restore RCS1079 // Throwing of new NotImplementedException.
 			}
 		}));
 		handler.Value.Invoke((Message)message);

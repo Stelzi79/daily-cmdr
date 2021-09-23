@@ -22,8 +22,10 @@ internal class MainSystemActor : MyActorBase<MainSystemActor>
 	{
 		Console.WriteLine(message.ToString());
 
-		Self.GracefulStop(new TimeSpan(0, 0, 10));
+		_ = Self.GracefulStop(new TimeSpan(0, 0, 10));
 	}
 
+#pragma warning disable RCS1132 // Remove redundant overriding member.
 	public override void AroundPostStop() => base.AroundPostStop();
+#pragma warning restore RCS1132 // Remove redundant overriding member.
 }

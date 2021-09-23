@@ -11,10 +11,11 @@ charset              = utf-8-bom
 # Code files
 [*.{cs,csx,vb,vbx}]
 
+csharp_style_var_for_built_in_types=true:none
+csharp_style_var_when_type_is_apparent=true:none
+csharp_style_var_elsewhere=true:none
+
 dotnet_diagnostic.RCS1110.severity=warning
-csharp_style_var_for_built_in_types=false:suggestion
-csharp_style_var_when_type_is_apparent=false:suggestion
-csharp_style_var_elsewhere=false:suggestion
 
 #Core editorconfig formatting - indentation
 
@@ -198,8 +199,10 @@ dotnet_diagnostic.CA2241.severity = warning
 dotnet_diagnostic.CA2242.severity = warning
 
 dotnet_diagnostic.IDE0022.severity = suggestion
+dotnet_diagnostic.IDE0079.severity = silent
 
 dotnet_diagnostic.RCS1063.severity = none
+dotnet_diagnostic.RCS1158.severity = silent
 dotnet_diagnostic.SA0001.severity = none
 dotnet_diagnostic.SA1200.severity = none
 dotnet_diagnostic.SA1503.severity = none
