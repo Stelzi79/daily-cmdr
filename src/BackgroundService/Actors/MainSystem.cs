@@ -10,9 +10,9 @@ using BackgroundService.Messages;
 
 using DailyCmdrLib;
 
-namespace BackgroundService;
+namespace BackgroundService.Actors;
 
-internal class MainSystemActor : MyActorBase<MainSystemActor>
+internal class MainSystem : MyActorBase<MainSystem>
 {
 	public void OnReceive(SystemPreStartup message) => Console.WriteLine(message.ToString());
 

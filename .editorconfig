@@ -6,6 +6,7 @@
 indent_style         = tab
 insert_final_newline =true
 charset              = utf-8-bom
+csharp_style_namespace_declarations=file_scoped:suggestion
 
 
 # Code files
@@ -239,3 +240,6 @@ dotnet_diagnostic.SA1502.severity = silent
 
 # IDE0046: Convert to conditional expression
 dotnet_diagnostic.IDE0046.severity = none
+
+# CA1822: Mark members as static
+dotnet_diagnostic.CA1822.severity = silent
