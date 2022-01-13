@@ -7,13 +7,17 @@ using System.Text;
 using System.Threading.Tasks;
 
 using Akka.Actor;
+using Akka.Event;
+using Akka.Logger.Serilog;
 
 namespace DailyCmdrLib;
 
-public class MyActorBase<T> : UntypedActor
+public abstract class MyActorBase<T> : UntypedActor
 	where T : ActorBase, new()
 {
 	private readonly ConcurrentDictionary<Type, Lazy<Action<Message>>> _MessageHandlers = new();
+
+	protected ILoggingAdapter Logger => Context.GetLogger();
 
 	protected override void OnReceive(object message)
 	{

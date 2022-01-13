@@ -14,6 +14,8 @@ using Ardalis.GuardClauses;
 using BackgroundService.Actors;
 using BackgroundService.Messages;
 
+using Serilog;
+
 namespace BackgroundService;
 
 public static class Program
@@ -46,6 +48,8 @@ public static class Program
 
 		Console.WriteLine("Starting up ActorSystem ...");
 
+		ConfigureSerilog();
+
 		using (MainSystem = ActorSystem.Create("daily-cmd", GetConfiguration(baseDirectory)))
 		{
 			_ = Task.Delay(100);
@@ -63,6 +67,16 @@ public static class Program
 		}
 
 		Console.WriteLine("Application Ended!");
+	}
+
+	private static void ConfigureSerilog()
+	{
+		var logger = new LoggerConfiguration()
+									.WriteTo.Console()
+									.MinimumLevel.Information()
+									.CreateLogger();
+
+		Serilog.Log.Logger = logger;
 	}
 
 	private static void Console_CancelKeyPress(object? sender, ConsoleCancelEventArgs e)
@@ -99,11 +113,11 @@ public static class Program
 		return config;
 	}
 
-	private static bool ContainsExcludes(string f)
+	private static bool ContainsExcludes(string file)
 	{
 		foreach (var excl in EnvExcludes)
 		{
-			if (f.Contains(excl))
+			if (file.Contains(excl))
 			{
 				return true;
 			}

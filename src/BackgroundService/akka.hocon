@@ -4,5 +4,7 @@
 
 akka{
 	actor{
+		loglevel=INFO,
+		loggers=["Akka.Logger.Serilog.SerilogLogger, Akka.Logger.Serilog"]
 	}
 }
